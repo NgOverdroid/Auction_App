@@ -14,6 +14,7 @@ export async function createItemAction(formData: FormData){
     if(!user || !user.id)
         throw new Error("Unauthorized");
 
+    const file = formData.get("file");
     await prisma.item.create({
         data: {
           name: String(formData.get("name")),
