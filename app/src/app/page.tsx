@@ -1,12 +1,12 @@
 import { prisma } from "@/lib/prisma";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { auth } from "../auth";
+import { auth } from "@/auth";
 import { SignIn } from "@/components/signin";
 import { SignOut } from "@/components/signout";
 
 export default async function HomePage() {
-  const bids = await prisma.bids.findMany();
+  // const bids = await prisma.bids.findMany();
   const session = await auth();
 
   return (
