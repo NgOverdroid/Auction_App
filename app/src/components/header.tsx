@@ -1,5 +1,3 @@
-import Image from "next/image"
-
 export function Header(){
     return (
         <div className="bg-gray-50">
