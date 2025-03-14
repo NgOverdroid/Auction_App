@@ -1,24 +1,16 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { auth } from "@/auth";
-import { SignIn } from "@/components/signin";
-import { SignOut } from "@/components/signout";
+import { prisma } from "@/lib/prisma";
 
 export default async function HomePage() {
-  const session = await auth();
 
   return (
-      <main className="container mx-auto py-12 ">
-        { session ? <SignOut/> : <SignIn/>}
-        <form>
-          <Input type="text" name="bid" />
-          <Button type="submit">Create a Bid</Button>
-        </form>
+      <main className="container mx-auto py-12 space-y-10 px-9">
+        <h2 className="text-2xl font-bold">Items To Sell</h2>
 
-        {/* {bids.map((bid) => {
-          <div key={bid.id}>{bid.id}</div>
+        <div className="grid grid-cols-4 gap-7">
+          {/* {bids.map((item) => {
+          <div key={item.id} className="border p-8 rounded-xl">{item.name} starting price: {item.startingPrice} vnd</div>
         })} */}
-
+        </div>
       </main>
   );
 }
