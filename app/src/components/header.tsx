@@ -19,6 +19,11 @@ export async function Header(){
                         <Button className="bg-amber-600 cursor-pointer hover:bg-amber-400">Auction an Item</Button>
                     </Link>
                 </div>
+                <div className="flex items-center justify-center">
+                    <Link href="/auctions">
+                        <Button className="bg-amber-600 cursor-pointer hover:bg-amber-400">My Auctions</Button>
+                    </Link>
+                </div>
                 <div className="flex items-center justify-center gap-4">
                     <div>{session?.user?.name}</div>
                     <div>

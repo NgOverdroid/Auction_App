@@ -1,10 +1,7 @@
 import { prisma } from "@/lib/prisma";
-import { auth } from "@/auth";
-import Image from "next/image";
+import { ItemCard } from "@/components/itemcard";
 
 export default async function HomePage() {
-  const session = await auth();
-  const user_id = session?.user?.id;
   const items = await prisma.item.findMany();
 
   return (
@@ -13,11 +10,7 @@ export default async function HomePage() {
 
         <div className="grid grid-cols-4 gap-7">
           {items.map((item) => (
-            <div key={item.id}>
-              <img src={item.imageUrl} alt={item.name} width={200} height={200}/>
-              <p>{item.name}</p>
-              <p>{item.startingPrice}</p>
-            </div>
+            <ItemCard key={item.id} item={item}/>
           ))}
         </div>
       </main>
