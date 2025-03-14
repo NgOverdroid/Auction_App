@@ -15,8 +15,14 @@ export async function createItemAction(form_data: FormData){
     if (!user || !user.id)
         throw new Error("Unauthorized");
 
-    // await prisma.bids.create({
-    
-    // });
+    await prisma.item.create({
+        data: {
+            name: form_data.get("name") as string,
+            startingPrice: Number(form_data.get("startingPrice")),
+            imageUrl: form_data.get("imageUrl") as string,
+            userId: user.id,
+            endDate: "19/04/2004"
+        }
+    });
     redirect("/");
 }
