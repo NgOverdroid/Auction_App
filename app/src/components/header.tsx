@@ -6,9 +6,8 @@ import { Button } from "./ui/button";
 
 export function Header(){
     const [isVisible, setIsVisible] = useState(false);
-    const notifButtonRef = useRef<HTMLButtonElement | null>(null);
     const session = useSession();
-
+    
     const userId = session?.data?.user?.id;
 
     return (
