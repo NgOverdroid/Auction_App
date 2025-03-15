@@ -18,7 +18,7 @@ export async function createItemAction(form_data: FormData){
     await prisma.item.create({
         data: {
             name: form_data.get("name") as string,
-            startingPrice: Number(form_data.get("startingPrice")),
+            startingPrice: Math.round(Number(form_data.get("startingPrice"))),
             imageUrl: form_data.get("imageUrl") as string,
             userId: user.id,
             endDate: "19/04/2004"
