@@ -67,7 +67,7 @@ model Item {
   imageUrl      String
   currentBid    Int     @default(0)
   startingPrice Int     @default(0)
-  bidInterval   Int     @default(100)
+  bidInterval   Int     @default(100000)
   endDate       DateTime
   user          User    @relation(fields: [userId], references: [id], onDelete: Cascade)
   bids          Bid[]
