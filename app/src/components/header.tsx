@@ -1,11 +1,16 @@
-import { auth } from "@/auth";
-import { SignIn } from "./signin";
-import { SignOut } from "./signout";
+'use client'
+import { useState, useRef } from "react";
+import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { Button } from "./ui/button";
 
-export async function Header(){
-    const session = await auth();
+export function Header(){
+    const [isVisible, setIsVisible] = useState(false);
+    const notifButtonRef = useRef<HTMLButtonElement | null>(null);
+    const session = useSession();
+
+    const userId = session?.data?.user?.id;
+
     return (
         <div className="bg-gray-200 py-2">
             <div className="container flex justify-between p-3.5">
@@ -25,9 +30,24 @@ export async function Header(){
                     </Link>
                 </div>
                 <div className="flex items-center justify-center gap-4">
-                    <div>{session?.user?.name}</div>
+                    <div>{session?.data?.user?.name}</div>
                     <div>
-                        { session ? <SignOut/> : <SignIn/>}
+                    {
+                        userId ? 
+                        (<Button
+                            onClick={() =>
+                                signOut({
+                                    callbackUrl: "/",
+                                })
+                            }
+                        >
+                            Sign Out
+                        </Button>) 
+                        : 
+                        (<Button type="submit" onClick={() => signIn()}>
+                            Sign In
+                        </Button>)
+                    }
                     </div>
                 </div>
             </div>
