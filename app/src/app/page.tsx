@@ -5,8 +5,8 @@ export default async function HomePage() {
   const items = await prisma.item.findMany();
 
   return (
-      <main className="container mx-auto py-12 space-y-10 px-9">
-        <h2 className="text-2xl font-bold">Items To Sell</h2>
+      <main className="space-y-10">
+        <h2 className="text-4xl font-bold">Items For Sale</h2>
 
         <div className="grid grid-cols-4 gap-7">
           {items.map((item) => (

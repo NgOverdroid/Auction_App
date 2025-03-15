@@ -16,12 +16,12 @@ export async function Header(){
                 </Link>
                 <div className="flex items-center justify-center">
                     <Link href="/items/create">
-                        <Button className="bg-amber-600 cursor-pointer hover:bg-amber-400">Auction an Item</Button>
+                        <Button className="bg-amber-600 cursor-pointer hover:bg-amber-500">Auction an Item</Button>
                     </Link>
                 </div>
                 <div className="flex items-center justify-center">
                     <Link href="/auctions">
-                        <Button className="bg-amber-600 cursor-pointer hover:bg-amber-400">My Auctions</Button>
+                        <Button className="bg-amber-600 cursor-pointer hover:bg-amber-500">My Auctions</Button>
                     </Link>
                 </div>
                 <div className="flex items-center justify-center gap-4">

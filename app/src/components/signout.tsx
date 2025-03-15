@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 
 export function SignOut() {
   return (
-    <form
+    <form className="cursor:pointer"
       action={async () => {
         "use server"
         await signOut()
